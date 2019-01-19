@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品一覧画面</title>
+</head>
+<body>
+	<form action="ListForm" th:action="@{/list}" th:object="${ListForm}" method="POST">
+		<p>
+			いちご: 個数
+			<select name="ctSt" th:field="*{num}">
+				<optionvalue""></option>
+				<optionvalue"1">1</option>
+				<optionvalue"2">2</option>
+				<optionvalue"3">3</option>
+			</select>
+			\300
+			<input type="submit" name="strawberry" th:field="*{name}" value="カートに追加">
+		</p>
+		<p>
+			めろん: 個数
+			<select name="ctMe" th:field="*{num}">
+				<optionvalue""></option>
+				<optionvalue"1">1</option>
+				<optionvalue"2">2</option>
+				<optionvalue"3">3</option>
+			</select>
+			\400
+			<input type="submit" name="melon" th:field="*{name}" value="カートに追加">
+		</p>
+		<p>
+			ばなな: 個数
+			<select name="ctBa" th:field="*{num}">
+				<optionvalue""></option>
+				<optionvalue"1">1</option>
+				<optionvalue"2">2</option>
+				<optionvalue"3">3</option>
+			</select>
+			\500
+			<input type="submit" name="banana" th:field="*{name}" value="カートに追加">
+		</p>
+	</form>
+
+	<dl>
+		<th:block th:each="order: ${orders}">
+    		<dt>
+      			<span class="name" th:text="${order.name}"></span>
+    		</dt>
+  		</th:block>
+  		<th:block th:each="order: ${orders}">
+    		<dt>
+      			<span class="num" th:text="${order.num}"></span>
+    		</dt>
+  		</th:block>
+	</dl>
+</body>
+</html>
